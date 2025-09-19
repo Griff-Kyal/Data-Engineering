@@ -24,7 +24,7 @@ My goal is to work through all the **core practices of modern data engineering**
 
 | Project | Description | Skills Used | Link |
 |---------|-------------|-------------|------|
-| **[NYC Yellow Taxi Pipeline](#)** | Building an end-to-end pipeline to ingest, clean, transform, and store the NYC Yellow Taxi data for 07/2025 for analysis. | Python (Pandas, PySpark), Prefect, Docker, PostGre, Data Modeling, Data Flow | [View Project](https://github.com/Griff-Kyal/Data-Analyst_Projects/blob/main/Stack%20Overflow%202024%20Survey/Stack%20Overflow%202024%20Survey.ipynb) |
+| **[NYC Yellow Taxi Pipeline](#)** | Building an end-to-end pipeline to ingest, clean, transform, and store the NYC Yellow Taxi data for 07/2025 for analysis. | Python (Pandas, PySpark), Prefect, Docker, PostGre, Data Modeling, Data Flow | [View Project](https://github.com/Griff-Kyal/Data-Engineering/tree/main/nyc-tlc-pipeline) |
 
 ---
 
