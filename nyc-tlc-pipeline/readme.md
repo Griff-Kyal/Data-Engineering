@@ -28,7 +28,7 @@ The goal of this project is to design and implement an end to end **data enginee
   - Yellow and Green Taxi trip data available monthly (Parquet format)  
   - Includes pickup/dropoff times, locations, fares, passenger counts, and payment types  
 - **Yellow Taxi Data Dictionary**  
-  Source: [NYC TLC Data](https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page)
+  Source: [Data Dictionary](https://www.nyc.gov/assets/tlc/downloads/pdf/data_dictionary_trip_records_yellow.pdf)
   
 
 ---
@@ -45,12 +45,14 @@ The goal of this project is to design and implement an end to end **data enginee
 ---
 
 ## Data Pipeline Architecture
-![Pipeline Architecture](docs/pipeline.png) 
+
+<img width="961" height="398" alt="DataFlow" src="https://github.com/user-attachments/assets/cc073a8a-0aa1-4a75-8803-dc239fbf7b1a" />
 
 ---
 
 ## Data Modelling
-![Data Model](docs/data_model.png)  
+
+<img width="1512" height="835" alt="DataModel" src="https://github.com/user-attachments/assets/2a37b807-fb21-4f93-b18d-3ba2f89df6b8" />
 
 ---
 
@@ -195,7 +197,7 @@ We can now run this single file to automate the process of extracting the parque
 
 We have partly transformed the data previously, using Python with DuckDB to Handle missing or invalid records (negative fares, zero distance). Now we will use Python with Jupyter Notebooks to look further into the data to make further Transformations.
 
-These transformations can be seen in the [cleaning_with_postgre_upload.ipynb](https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page) file. some of the transformations we make are:
+These transformations can be seen in the [cleaning_with_postgre_upload.ipynb](https://github.com/Griff-Kyal/Data-Engineering/blob/main/nyc-tlc-pipeline/cleaning_with_postgre_upload.ipynb) file. some of the transformations we make are:
 
   - Fix datatypes (timestamps, floats, integers)    
   - Column renaming
@@ -226,20 +228,20 @@ import psycopg2
 
 engine = create_engine(f'postgresql://{dbusername}:{dbpassword}@{dbhost}:{dbport}/{dbname}')
 
-df.to_sql(f'master_table_{date_part}, engine')
+df.to_sql(f'master_table_{date_part}', engine')
 ```
 
 This query took 8min 51sec to complete, but successfully imported all 3,522,276 lines of data into our Postgre database. 
 
-picture here
+<img width="1870" height="897" alt="SQL results" src="https://github.com/user-attachments/assets/2ed293fd-5816-4646-a618-d97aa6952798" />
 
 ---
 
 ## Step 4: Database Table Modelling & Analytics
 
-Now we have created the data, we can now use the queries within the [table_creation.sql](https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page) file to brake down the data and create the tables we need for the daily report analytics.
+Now we have created the data, we can now use the queries within the [table_creation.sql](https://github.com/Griff-Kyal/Data-Engineering/blob/main/nyc-tlc-pipeline/src/sql/table_creation.sql) file to brake down the data and create the tables we need for the daily report analytics.
 
-Now we have created all the relevant tables, we can run the queries within the [analytics_queries.sql](https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page) to gather a brake down of the daily revenue, airport trips and mileage, then create a daily_summary table using the following query:
+Now we have created all the relevant tables, we can run the queries within the [analytics_queries.sql](https://github.com/Griff-Kyal/Data-Engineering/blob/main/nyc-tlc-pipeline/src/sql/analytics_queries.sql) to gather a brake down of the daily revenue, airport trips and mileage, then create a daily_summary table using the following query:
 
 ```sql
 CREATE TABLE daily_summary AS
@@ -277,6 +279,48 @@ ORDER BY r.pickup_day NULLS LAST;
 
 You can see the analytics below:
 
+<img width="1472" height="245" alt="daily_revenue" src="https://github.com/user-attachments/assets/7cd10428-72cb-4cac-9d9b-bf95435ef2f7" />
 
+<img width="1472" height="245" alt="airport_trips" src="https://github.com/user-attachments/assets/567e1285-0218-4107-9c2d-cbbc266c1188" />
+
+<img width="1472" height="245" alt="daily_mileage" src="https://github.com/user-attachments/assets/fd3f73c3-2b3e-44ca-9aca-32d823be5620" />
+
+
+[daily_summary.csv](https://github.com/user-attachments/files/22428180/daily_summary.csv)
+
+
+| pickup_day | revenue     | total_airport_trips | daily_mileage |
+|------------|-------------|----------------------|---------------|
+| 2025-07-01 | $3,430,359.95  | 7,895                 | 895,824.95     |
+| 2025-07-02 | $3,047,890.75  | 7,755                 | 1,216,531.39    |
+| 2025-07-03 | $2,804,449.83  | 6,695                 | 642,663.43     |
+| 2025-07-04 | $2,311,832.48  | 6,604                 | 789,980.79     |
+| 2025-07-05 | $2,521,521.59  | 6,507                 | 742,259.66     |
+| 2025-07-06 | $2,791,133.29  | 10,890                | 524,629.99     |
+| 2025-07-07 | $2,934,443.63  | 10,850                | 960,535.83     |
+| 2025-07-08 | $3,559,542.79  | 9,305                 | 589,067.60     |
+| 2025-07-09 | $3,725,512.92  | 9,401                 | 882,511.32     |
+| 2025-07-10 | $3,605,489.03  | 8,833                 | 713,820.58     |
+| 2025-07-11 | $3,354,960.73  | 8,459                 | 769,463.16     |
+| 2025-07-12 | $3,546,268.33  | 7,074                 | 800,889.51     |
+| 2025-07-13 | $3,298,868.12  | 9,993                 | 929,004.02     |
+| 2025-07-14 | $3,786,471.03  | 10,624                | 1,091,783.06    |
+| 2025-07-15 | $3,768,853.45  | 10,789                | 1,045,312.95    |
+| 2025-07-16 | $3,920,698.02  | 8,746                 | 570,377.02     |
+| 2025-07-17 | $4,072,449.88  | 9,483                 | 817,099.91     |
+| 2025-07-18 | $3,498,977.36  | 8,697                 | 592,469.86     |
+| 2025-07-19 | $3,510,798.29  | 6,675                 | 1,062,377.00    |
+| 2025-07-20 | $3,370,330.27  | 10,310                | 881,512.72     |
+| 2025-07-21 | $3,170,360.77  | 10,583                | 638,523.21     |
+| 2025-07-22 | $3,389,836.34  | 8,217                 | 969,551.45     |
+| 2025-07-23 | $3,558,806.02  | 8,272                 | 613,455.49     |
+| 2025-07-24 | $3,753,725.89  | 8,483                 | 685,171.13     |
+| 2025-07-25 | $3,663,331.86  | 8,233                 | 649,989.25     |
+| 2025-07-26 | $3,671,265.17  | 8,199                 | 650,767.62     |
+| 2025-07-27 | $3,214,360.00  | 9,068                 | 683,710.70     |
+| 2025-07-28 | $3,389,329.28  | 11,163                | 707,843.36     |
+| 2025-07-29 | $3,716,345.31  | 8,285                 | 766,713.92     |
+| 2025-07-30 | $3,801,900.55  | 7,410                 | 1,053,448.39    |
+| 2025-07-31 | $3,994,511.88  | 8,289                 | 7558,12.94     |
 
 ---
