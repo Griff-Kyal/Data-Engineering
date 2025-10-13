@@ -43,4 +43,4 @@ My goal is to work through all the **core practices of modern data engineering**
 
 ---
 
-⭐ *Follow along as I work through the **full data engineering lifecycle** — from raw data ingestion to production-ready pipelines!*  
+⭐ *Follow along as I work through the **full data engineering lifecycle**. From raw data ingestion to production ready pipelines!*  
