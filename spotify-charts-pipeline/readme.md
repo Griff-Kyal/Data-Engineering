@@ -367,7 +367,7 @@ Airflow provides task-level logs, and each step can be extended to log validatio
 ## Scalability Notes
 
 - For large files, the `spotify_db_loader.py` uses `read_csv(chunksize=135000)` and PostgreSQL’s `COPY` for faster loads and more stable memory allocation  
-- Convert intermediate files to **Parquet** for better performance and compression  
+- Converted intermediate files to **Parquet** for better performance and compression  
 - The same structure can be adapted to cloud databases (BigQuery, Snowflake)  
 
 ---
@@ -397,6 +397,7 @@ Airflow provides task-level logs, and each step can be extended to log validatio
 Aspiring Data Engineer | SQL & Python Developer   
 
 🔗 [LinkedIn](https://www.linkedin.com/in/kyal-griffiths)
+
 
 
 
