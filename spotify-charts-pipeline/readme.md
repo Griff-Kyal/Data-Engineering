@@ -45,8 +45,8 @@ spotify-charts-pipeline/
 │       ├── artists.csv
 │       ├── tracks.csv
 │       ├── region.csv
-│       ├── chart_entries_normalized.csv
-│       └── chart_entries_full.csv
+│       ├── chart_entries_normalized.parquet
+│       └── chart_entries_full.parquet
 │
 ├── dags/
 │   ├── spotify_airflow_dag.py
@@ -397,5 +397,6 @@ Airflow provides task-level logs, and each step can be extended to log validatio
 Aspiring Data Engineer | SQL & Python Developer   
 
 🔗 [LinkedIn](https://www.linkedin.com/in/kyal-griffiths)
+
 
 
