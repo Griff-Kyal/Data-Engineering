@@ -302,7 +302,7 @@ The example reports can be views here:
 **Schema Overview**
 
 ```
-artists(artist_id) ───< tracks(artist_id)
+artists(artist_id) ───< tracks(track_id, artist_id)
       │                      │
       └──< chart_entries(artist_id, track_id, region_id) >── region(region_id)
 ```
@@ -397,6 +397,7 @@ Airflow provides task-level logs, and each step can be extended to log validatio
 Aspiring Data Engineer | SQL & Python Developer   
 
 🔗 [LinkedIn](https://www.linkedin.com/in/kyal-griffiths)
+
 
 
 
