@@ -7,7 +7,7 @@ from pathlib import Path
 from dotenv import load_dotenv
 import os
 
-load_dotenv("spotify-charts-pipeline/local.env")
+load_dotenv("local.env")
 
 DATA_DIR = os.getenv("DATA_DIR")
 RAW_FILE = Path(f"{DATA_DIR}/raw/charts.csv")
@@ -142,4 +142,5 @@ def main():
 
 
 if __name__ == "__main__":
+
     main()
