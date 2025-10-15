@@ -1,7 +1,7 @@
 # ⚙️ Data Engineering Projects
 
 Welcome to my Data Engineering portfolio!  
-This repository showcases projects I’m currently building (and future ones planned) that focus on **data pipelines, ETL processes, database design, and scalable data infrastructure**.  
+This repository showcases projects I’m currently building (and future ones planned) that focus on **data pipelines, ETL processes, database design, and scalable data infrastructure with process automation**.  
 
 My goal is to work through all the **core practices of modern data engineering**, from ingestion to transformation, storage, orchestration, and reporting.  
 
