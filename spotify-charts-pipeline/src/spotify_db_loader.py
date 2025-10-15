@@ -9,7 +9,7 @@ import os
 from dotenv import load_dotenv
 from io import StringIO
 
-load_dotenv("spotify-charts-pipeline/local.env")
+load_dotenv("local.env")
 
 # DB connection params
 DB_CONFIG = {
@@ -238,4 +238,5 @@ def main():
 
 
 if __name__ == "__main__":
+
     main()
