@@ -7,7 +7,7 @@ import psycopg2
 import pandas as pd
 from dotenv import load_dotenv
 
-load_dotenv("spotify-charts-pipeline/local.env")
+load_dotenv("local.env")
 
 # config
 DB_CONFIG = {
@@ -129,4 +129,5 @@ def main():
 
 
 if __name__ == "__main__":
+
     main()
