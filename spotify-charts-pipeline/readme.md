@@ -397,8 +397,3 @@ Airflow provides task-level logs, and each step can be extended to log validatio
 Aspiring Data Engineer | SQL & Python Developer   
 
 🔗 [LinkedIn](https://www.linkedin.com/in/kyal-griffiths)
-
-
-
-
-
