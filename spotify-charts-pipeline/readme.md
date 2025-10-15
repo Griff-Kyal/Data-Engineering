@@ -62,6 +62,10 @@ spotify-charts-pipeline/
 │   ├── data_profiler.py
 │   └── spotify_reporting.py
 │
+├── logs/
+│
+├── plugins/
+│
 ├── requirements.txt
 ├── Dockerfile
 ├── docker-compose.yml
@@ -393,4 +397,5 @@ Airflow provides task-level logs, and each step can be extended to log validatio
 Aspiring Data Engineer | SQL & Python Developer   
 
 🔗 [LinkedIn](https://www.linkedin.com/in/kyal-griffiths)
+
 
