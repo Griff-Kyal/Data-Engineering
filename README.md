@@ -24,6 +24,7 @@ My goal is to work through all the **core practices of modern data engineering**
 
 | Project | Description | Skills Used | Link |
 |---------|-------------|-------------|------|
+| **[Spotify Charts Pipeline](#)** | Building an end-to-end pipeline to clean, transform, and store the Spotify Top200 Charts from 2017-2021, generating customisable reports and automating the whole process with Airflow | Python (Pandas, psycopg2, SQLAlchemy), Airflow, Docker / Docker compose, PostGre, Data Modeling, Process Automation | [View Project](https://github.com/Griff-Kyal/Data-Engineering/tree/main/spotify-charts-pipeline) |
 | **[NYC Yellow Taxi Pipeline](#)** | Building an end-to-end pipeline to ingest, clean, transform, and store the NYC Yellow Taxi data for 07/2025 for analysis. | Python (Pandas, PySpark), Prefect, Docker, PostGre, Data Modeling, Data Flow | [View Project](https://github.com/Griff-Kyal/Data-Engineering/tree/main/nyc-tlc-pipeline) |
 
 ---
