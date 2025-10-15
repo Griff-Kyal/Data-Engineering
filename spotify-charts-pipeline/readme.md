@@ -23,7 +23,7 @@ The goal is to show how a modern data pipeline can be built with open-source too
 
 ## Data Pipeline Architecture
 
-<img width="961" height="398" alt="Data Pipeline drawio" src="https://github.com/user-attachments/assets/c860ae66-62a1-4e17-8626-862a8f4e2aad" />
+<img width="1006" height="648" alt="Data Pipeline drawio" src="https://github.com/user-attachments/assets/4567ea52-3ca2-4d63-9593-20ab0db62adf" />
 
 ---
 
@@ -393,3 +393,4 @@ Airflow provides task-level logs, and each step can be extended to log validatio
 Aspiring Data Engineer | SQL & Python Developer   
 
 🔗 [LinkedIn](https://www.linkedin.com/in/kyal-griffiths)
+
