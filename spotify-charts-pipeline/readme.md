@@ -23,13 +23,13 @@ The goal is to show how a modern data pipeline can be built with open-source too
 
 ## Data Pipeline Architecture
 
-[image]
+<img width="961" height="398" alt="Data Pipeline drawio" src="https://github.com/user-attachments/assets/c860ae66-62a1-4e17-8626-862a8f4e2aad" />
 
 ---
 
 ## Data Modelling
 
-[image]
+<img width="1080" height="563" alt="Data Modelling" src="https://github.com/user-attachments/assets/177ffcc9-4bd9-42df-abb6-e513c13d7e2b" />
 
 ---
 
@@ -129,6 +129,10 @@ Then install everything:
 ```bash
 pip install -r requirements.txt
 ```
+
+### 4. Download the kaggle dataset
+
+Download the [Spotify Charts dataset](https://www.kaggle.com/datasets/dhruvildave/spotify-charts) from the link, then place the csv file into to the `data/raw/` directory of the project.
 
 ---
 
@@ -283,9 +287,9 @@ SELECT * FROM region
 
 The example reports can be views here:
 
-[Report1](Report1URL)  
-[Report2](Report2URL)  
-[Report3](Report3URL)  
+[top 10 tracks 2021.](https://github.com/Griff-Kyal/Data-Engineering/blob/main/spotify-charts-pipeline/reports/top_10_tracks_2021.csv)  
+[top 50 artists by songs](https://github.com/Griff-Kyal/Data-Engineering/blob/main/spotify-charts-pipeline/reports/top_50_artists_by_songs.csv)  
+[top 200 2021-12-07 region66](https://github.com/Griff-Kyal/Data-Engineering/blob/main/spotify-charts-pipeline/reports/top_200_2021-12-07_region66.csv)  
 
 ---
 
@@ -358,7 +362,7 @@ Airflow provides task-level logs, and each step can be extended to log validatio
 
 ## Scalability Notes
 
-- For large files, use `read_csv(chunksize=100000)` and PostgreSQL’s `COPY` for fast loads  
+- For large files, the `spotify_db_loader.py` uses `read_csv(chunksize=135000)` and PostgreSQL’s `COPY` for faster loads and more stable memory allocation  
 - Convert intermediate files to **Parquet** for better performance and compression  
 - The same structure can be adapted to cloud databases (BigQuery, Snowflake)  
 
@@ -387,4 +391,5 @@ Airflow provides task-level logs, and each step can be extended to log validatio
 
 **Kyal Griffiths**  
 Aspiring Data Engineer | SQL & Python Developer   
+
 🔗 [LinkedIn](https://www.linkedin.com/in/kyal-griffiths)
