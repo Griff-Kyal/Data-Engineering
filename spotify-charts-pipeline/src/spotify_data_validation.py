@@ -7,7 +7,7 @@ import psycopg2
 from dotenv import load_dotenv
 import os
 
-load_dotenv("spotify-charts-pipeline/local.env")
+load_dotenv("local.env")
 
 DB_CONFIG = {
     "host": os.getenv("PG_HOST"),
@@ -203,4 +203,5 @@ def run_validation():
 
 
 if __name__ == "__main__":
+
     run_validation()
